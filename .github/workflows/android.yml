@@ -2,10 +2,33 @@ name: Android CI
 
 on:
   push:
-    branches: [ "master" ]
+    paths:
+      - '.github/workflows/android.yml'
+      - 'app/**'
+      - 'build-logic/**'
+      - 'kotlinc/**'
+      - 'gradle/**'
+      - 'build.gradle'
+      - 'gradle.properties'
+      - 'gradlew'
+      - 'gradlew.bat'
+      - 'public-stable-ids.txt'
+      - 'settings.gradle'
   pull_request:
-    branches: [ "master" ]
-workflow_dispatch:
+    paths:
+      - '.github/workflows/android.yml'
+      - 'app/**'
+      - 'build-logic/**'
+      - 'kotlinc/**'
+      - 'gradle/**'
+      - 'build.gradle'
+      - 'gradle.properties'
+      - 'gradlew'
+      - 'gradlew.bat'
+      - 'public-stable-ids.txt'
+      - 'settings.gradle'
+  workflow_dispatch:
+
 jobs:
   buildlibreMinApi21:
     name: Build libre minApi21 debug APK
