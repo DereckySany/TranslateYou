@@ -66,7 +66,7 @@ jobs:
           name: apk-libre-debug
           path: app/build/outputs/apk/libre/debug
 
-buildStandardMinApi21:
+buildstandardMinApi21:
     name: Build Standard minApi21 debug APK
     runs-on: ubuntu-latest
     steps:
