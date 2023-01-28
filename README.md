@@ -11,6 +11,7 @@
     <img alt="Last commit" src="https://img.shields.io/github/last-commit/Bnyro/TranslateYou?color=c3e7ff&style=flat-square">
     <img alt="Repo size" src="https://img.shields.io/github/repo-size/Bnyro/TranslateYou?color=c3e7ff&style=flat-square">
     <img alt="Stars" src="https://img.shields.io/github/stars/Bnyro/TranslateYou?color=c3e7ff&style=flat-square">
+[![Android CI](https://github.com/DereckySany/TranslateYou/actions/workflows/android.yml/badge.svg)](https://github.com/DereckySany/TranslateYou/actions/workflows/android.yml)
     <br>
 </div>
 </div>
