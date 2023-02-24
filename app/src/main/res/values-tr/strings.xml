@@ -11,7 +11,7 @@
     <string name="options">Ayarlar</string>
     <string name="fetch_delay_summary">Metin ekleme ve çeviriyi getirme arasındaki gecikme</string>
     <string name="history_summary">Son çevrilen metinleri takip edin</string>
-    <string name="author">Yazar</string>
+    <string name="author">Geliştirici</string>
     <string name="license">Lisans</string>
     <string name="theme_auto">Sistem</string>
     <string name="theme_light">Açık</string>
@@ -44,10 +44,10 @@
     <string name="st_selected_engine">SimplyTranslate\'in çeviri için kullandığı motor</string>
     <string name="detected_language">Algılanan dil</string>
     <string name="missing_api_key">Lütfen Ayarlar\'da bir API anahtarı belirtin!</string>
-    <string name="search">Ara</string>
+    <string name="search">Arama</string>
     <string name="general">Genel</string>
     <string name="app_language">Uygulama dili</string>
-    <string name="translation">Çeviri</string>
+    <string name="translation">Tercüme</string>
     <string name="system">Sistem</string>
     <string name="character_warning_limit">Karakter uyarı sınırı</string>
     <string name="character_warning_limit_summary">Çevrilen metin azami uzunluğu aştığında uyar.</string>
@@ -58,4 +58,7 @@
     <string name="image_translation_summary">Resimlerden metin tanıma için dilleri indirin ve uygulayın.</string>
     <string name="init_tess_first">Lütfen önce ayarlardan dil verilerini indirin.</string>
     <string name="select_language">Resimlerden metin tanıma için lütfen ayarlardan bir dil seçin.</string>
+    <string name="translate">Çevir</string>
+    <string name="translate_automatically">Otomatik olarak çevir</string>
+    <string name="translate_automatically_summary">Belirli bir gecikmeden sonra otomatik olarak çeviri iste.</string>
 </resources>

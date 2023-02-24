@@ -1,10 +1,10 @@
 package com.bnyro.translate.api.mm.obj
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import kotlinx.serialization.Serializable
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Serializable
 data class MMResponseData(
-    val match: Int = 0,
+    val match: Float = 0f,
     val translatedText: String = "",
     val detectedLanguage: String? = null
 )

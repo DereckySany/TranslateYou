@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -40,9 +41,9 @@ import com.bnyro.translate.ui.components.prefs.PreferenceItem
 import com.bnyro.translate.ui.components.prefs.SettingsCategory
 import com.bnyro.translate.ui.components.prefs.SliderPreference
 import com.bnyro.translate.ui.components.prefs.SwitchPreference
+import com.bnyro.translate.ui.dialogs.EngineSelectionDialog
 import com.bnyro.translate.ui.theme.TranslateYouTheme
 import com.bnyro.translate.ui.views.EnginePref
-import com.bnyro.translate.ui.views.EngineSelectionDialog
 import com.bnyro.translate.ui.views.TessSettings
 import com.bnyro.translate.util.LocaleHelper
 import com.bnyro.translate.util.Preferences
@@ -178,15 +179,30 @@ fun SettingsPage() {
                         title = stringResource(R.string.translation)
                     )
 
-                    SliderPreference(
-                        preferenceKey = Preferences.fetchDelay,
-                        preferenceTitle = stringResource(R.string.fetch_delay),
-                        preferenceSummary = stringResource(R.string.fetch_delay_summary),
-                        defaultValue = 500f,
-                        minValue = 100f,
-                        maxValue = 1000f,
-                        stepSize = 100f
-                    )
+                    var translateAutomatically by remember {
+                        mutableStateOf(Preferences.get(Preferences.translateAutomatically, true))
+                    }
+
+                    SwitchPreference(
+                        preferenceKey = Preferences.translateAutomatically,
+                        defaultValue = true,
+                        preferenceTitle = stringResource(R.string.translate_automatically),
+                        preferenceSummary = stringResource(R.string.translate_automatically_summary)
+                    ) {
+                        translateAutomatically = it
+                    }
+
+                    AnimatedVisibility(visible = translateAutomatically) {
+                        SliderPreference(
+                            preferenceKey = Preferences.fetchDelay,
+                            preferenceTitle = stringResource(R.string.fetch_delay),
+                            preferenceSummary = stringResource(R.string.fetch_delay_summary),
+                            defaultValue = 500f,
+                            minValue = 100f,
+                            maxValue = 1000f,
+                            stepSize = 100f
+                        )
+                    }
 
                     SwitchPreference(
                         preferenceKey = Preferences.showAdditionalInfo,
@@ -213,12 +229,11 @@ fun SettingsPage() {
                         enableSimultaneousTranslation = it
                     }
 
-                    Spacer(
-                        modifier = Modifier
-                            .height(10.dp)
-                    )
-
-                    if (enableSimultaneousTranslation) {
+                    AnimatedVisibility(visible = enableSimultaneousTranslation) {
+                        Spacer(
+                            modifier = Modifier
+                                .height(10.dp)
+                        )
                         PreferenceItem(
                             title = stringResource(R.string.enabled_engines),
                             summary = stringResource(R.string.enabled_engines_summary),
@@ -227,6 +242,10 @@ fun SettingsPage() {
                             showEngineSelectDialog = true
                         }
                     }
+                    Spacer(
+                        modifier = Modifier
+                            .height(10.dp)
+                    )
 
                     val charCounterLimits = listOf(stringResource(R.string.none), "50", "100", "150", "200", "300", "400", "500", "1000", "2000", "3000", "5000")
                     ListPreference(
